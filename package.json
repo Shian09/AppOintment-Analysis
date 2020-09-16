@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "start": "cd appointment-stats && npm start",
+    "build": "cd appointment-stats && npm install && CI=false npm run build"
+  }
+}
