@@ -47,7 +47,7 @@ export default class AgePatient extends Component {
       <div>
         <Line
           data={this.state.chartData}
-          height={600}
+          height={570}
           options={{
             maintainAspectRatio: false,
             scales: {

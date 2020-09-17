@@ -42,7 +42,7 @@ export default class RatingDoctor extends Component {
       <div>
         <Pie
           data={this.state.chartData}
-          height={600}
+          height={570}
           options={{
             maintainAspectRatio: false,
             title: {

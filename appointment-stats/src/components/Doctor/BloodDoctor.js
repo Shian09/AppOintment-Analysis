@@ -47,7 +47,7 @@ export default class BloodDoctor extends Component {
       <div>
         <Polar
           data={this.state.chartData}
-          height={600}
+          height={570}
           options={{
             maintainAspectRatio: false,
             title: {
