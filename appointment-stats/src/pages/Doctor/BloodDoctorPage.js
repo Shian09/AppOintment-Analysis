@@ -9,7 +9,7 @@ import "../../css/Doctor/DoctorPage.css";
 export default class BloodDoctorPage extends Component {
   render() {
     return (
-      <div>
+      <div className="container">
         <BloodDoctor />
       </div>
     );
