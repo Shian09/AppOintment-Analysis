@@ -74,14 +74,6 @@ export default class NumDoctors extends Component {
                 },
               ],
             },
-            layout: {
-              padding: {
-                left: 600,
-                right: 600,
-                top: 0,
-                bottom: 0,
-              },
-            },
             tooltips: {
               enabled: true,
             },
