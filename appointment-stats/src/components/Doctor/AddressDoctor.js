@@ -42,7 +42,7 @@ export default class AddressDoctor extends Component {
       <div>
         <Bar
           data={this.state.chartData}
-          height={700}
+          height={600}
           options={{
             maintainAspectRatio: false,
             title: {

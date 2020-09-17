@@ -37,26 +37,26 @@ export default class NumDoctors extends Component {
     }
   };
 
-  //   componentDidUpdate = async () => {
-  //     console.log("Here");
-  //     try {
-  //       const chartData = await this.getDoctorNumData();
-  //       this.setState({ chartData });
-  //     } catch (error) {
-  //       //alert("An unexpected error occured from getting doctor num from component");
-  //       console.log(
-  //         "An unexpected error occured from getting doctor num from componentDidUpdate." +
-  //           error
-  //       );
-  //     }
-  //   };
+  componentDidUpdate = async () => {
+    console.log("Here");
+    try {
+      const chartData = await this.getDoctorNumData();
+      this.setState({ chartData });
+    } catch (error) {
+      //alert("An unexpected error occured from getting doctor num from component");
+      console.log(
+        "An unexpected error occured from getting doctor num from componentDidUpdate." +
+          error
+      );
+    }
+  };
 
   render() {
     return (
       <div>
         <Bar
           data={this.state.chartData}
-          height={700}
+          height={600}
           options={{
             maintainAspectRatio: false,
             title: {

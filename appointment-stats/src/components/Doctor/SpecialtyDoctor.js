@@ -42,7 +42,7 @@ export default class SpecialtyDoctor extends Component {
       <div>
         <HorizontalBar
           data={this.state.chartData}
-          height={700}
+          height={600}
           options={{
             maintainAspectRatio: false,
             title: {
