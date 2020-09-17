@@ -1,26 +1,26 @@
 import React, { Component } from "react";
 
 //Import Api functions
-import { getPatientAge } from "../../API/ApiCalls/PatientApiCalls";
+import { getBookedTime } from "../../API/ApiCalls/AppointmentApiCalls";
 
 //Import Chart
 import { Line } from "react-chartjs-2";
 
-export default class AgePatient extends Component {
+export default class BookedTime extends Component {
   state = {
     chartData: {},
   };
 
-  getPatientAgeData = async () => {
+  getBookedTimeData = async () => {
     try {
-      const data = await getPatientAge();
+      const data = await getBookedTime();
       return data;
     } catch (error) {
-      // alert(
-      //   "An unexpected error occured from getting patient age from component"
-      // );
+      //   alert(
+      //     "An unexpected error occured from getting patient age from component"
+      //   );
       console.log(
-        "An unexpected error occured from getting patient age from getData." +
+        "An unexpected error occured from getting booked time from getData." +
           error
       );
     }
@@ -28,15 +28,15 @@ export default class AgePatient extends Component {
 
   componentDidMount = async () => {
     try {
-      const chartData = await this.getPatientAgeData();
+      const chartData = await this.getBookedTimeData();
       this.setState({ chartData });
     } catch (error) {
-      // alert(
-      //   "An unexpected error occured from getting patient age from component" +
-      //     error
-      // );
+      //   alert(
+      //     "An unexpected error occured from getting patient age from component" +
+      //       error
+      //   );
       console.log(
-        "An unexpected error occured from getting patient age from componentDidMount." +
+        "An unexpected error occured from getting booked time from componentDidMount." +
           error
       );
     }
@@ -69,7 +69,7 @@ export default class AgePatient extends Component {
             },
             title: {
               display: true,
-              text: "Numbers of Patients per Age",
+              text: "Number of most booked Appointments per Time",
               fontSize: 25,
             },
             legend: {

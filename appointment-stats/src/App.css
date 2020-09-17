@@ -77,13 +77,13 @@
 
 .divDoc {
   padding-bottom: 10px;
-  /* margin-left: 33%; */
+  margin-left: 200px;
 }
 
 .divPat {
   float: right;
   margin-top: -60px;
-  /* margin-right: 33%; */
+  margin-right: 278px;
 }
 
 .NavigationBar {
@@ -95,9 +95,15 @@
 
 .Navigate {
   color: violet;
-  font-weight: bold;
 }
 
 .Navigate:hover {
   color: tomato;
+}
+
+.WebpageTitle {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: rgb(104, 102, 102);
 }

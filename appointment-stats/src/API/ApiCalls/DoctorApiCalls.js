@@ -139,7 +139,7 @@ export const getDoctorBlood = async () => {
             "rgba(164, 245, 84, 0.6)",
             "rgba(156, 80, 243, 0.6)",
             "rgba(84, 245, 116, 0.6)",
-            "rgba(242, 242, 107, 0.6)",
+            "rgba(238, 134, 54, 0.6)",
             "rgba(80, 161, 243, 0.6)",
             "rgba(242, 242, 107, 0.6)",
             "rgba(242, 107, 107, 0.6)",
@@ -213,6 +213,44 @@ export const getDoctorNum = async () => {
     // alert("An unexpected error occured from getting doctor numbers in rating table from apicalls.");
     console.log(
       "An unexpected error occured from getting doctor numbers in rating table from apicalls." +
+        error
+    );
+  }
+};
+
+//Get number of Doctors per gender
+export const getDoctorGender = async () => {
+  let chartData = {};
+
+  try {
+    const res = await api.get("/dataAnalysis/doctorGenderDist");
+
+    chartData = {
+      labels: ["Male", "Female", "Others"],
+      datasets: [
+        {
+          label: "Number of Doctors",
+          data: res.data.y,
+          backgroundColor: [
+            "rgba(54, 207, 238, 0.6)",
+            "rgba(238, 54, 213, 0.6)",
+            "rgba(238, 225, 54, 0.6)",
+          ],
+          hoverBackgroundColor: [
+            "rgba(54, 207, 238, 0.8)",
+            "rgba(238, 54, 213, 0.8)",
+            "rgba(238, 225, 54, 0.8)",
+          ],
+          borderWidth: 2,
+        },
+      ],
+    };
+
+    return chartData;
+  } catch (error) {
+    // alert("An unexpected error occured from getting Doctor gender from apicalls.An unexpected error occured");
+    console.log(
+      "An unexpected error occured from getting Doctor gender from apicalls." +
         error
     );
   }

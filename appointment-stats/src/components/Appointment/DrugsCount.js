@@ -1,24 +1,26 @@
 import React, { Component } from "react";
 
 //Import Api functions
-import { getDoctorNum } from "../../API/ApiCalls/DoctorApiCalls";
+import { getDrugsCount } from "../../API/ApiCalls/AppointmentApiCalls";
 
 //Import Chart
 import { Bar } from "react-chartjs-2";
 
-export default class NumDoctors extends Component {
+export default class DrugsCount extends Component {
   state = {
     chartData: {},
   };
 
-  getDoctorNumData = async () => {
+  getDrugsCountData = async () => {
     try {
-      const data = await getDoctorNum();
+      const data = await getDrugsCount();
       return data;
     } catch (error) {
-      //alert("An unexpected error occured from getting doctor num from component");
+      //   alert(
+      //     "An unexpected error occured from getting drugs count from component."
+      //   );
       console.log(
-        "An unexpected error occured from getting doctor num from getData." +
+        "An unexpected error occured from getting drugs count from component getData." +
           error
       );
     }
@@ -26,26 +28,14 @@ export default class NumDoctors extends Component {
 
   componentDidMount = async () => {
     try {
-      const chartData = await this.getDoctorNumData();
+      const chartData = await this.getDrugsCountData();
       this.setState({ chartData });
     } catch (error) {
-      //alert("An unexpected error occured from getting doctor num from component");
+      //   alert(
+      //     "An unexpected error occured from getting drugs count from component."
+      //   );
       console.log(
-        "An unexpected error occured from getting doctor num from componentDidMount." +
-          error
-      );
-    }
-  };
-
-  componentDidUpdate = async () => {
-    console.log("Here");
-    try {
-      const chartData = await this.getDoctorNumData();
-      this.setState({ chartData });
-    } catch (error) {
-      //alert("An unexpected error occured from getting doctor num from component");
-      console.log(
-        "An unexpected error occured from getting doctor num from componentDidUpdate." +
+        "An unexpected error occured from getting drugs count from componentDidMount." +
           error
       );
     }
@@ -61,7 +51,7 @@ export default class NumDoctors extends Component {
             maintainAspectRatio: false,
             title: {
               display: true,
-              text: "Number of Doctors in Rating Table",
+              text: "Number of Most Used Drugs in Prescription",
               fontSize: 25,
             },
             scales: {
@@ -76,8 +66,8 @@ export default class NumDoctors extends Component {
             },
             layout: {
               padding: {
-                right: 890,
-                left: 890,
+                left: 500,
+                right: 500,
                 top: 0,
                 bottom: 0,
               },

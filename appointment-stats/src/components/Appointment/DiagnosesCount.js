@@ -1,26 +1,24 @@
 import React, { Component } from "react";
 
 //Import Api functions
-import { getPatientAddress } from "../../API/ApiCalls/PatientApiCalls";
+import { getDiagnosesCount } from "../../API/ApiCalls/AppointmentApiCalls";
 
 //Import Chart
-import { Bar } from "react-chartjs-2";
+import { HorizontalBar } from "react-chartjs-2";
 
-export default class AddressPatient extends Component {
+export default class DiagnosesCount extends Component {
   state = {
     chartData: {},
   };
 
-  getPatientAddressData = async () => {
+  getDiagnosesCountData = async () => {
     try {
-      const data = await getPatientAddress();
+      const data = await getDiagnosesCount();
       return data;
     } catch (error) {
-      // alert(
-      //   "An unexpected error occured from getting patient address from component."
-      // );
+      //alert("An unexpected error occured from getting diagnosesfrom component");
       console.log(
-        "An unexpected error occured from getting patient address from component getData." +
+        "An unexpected error occured from getting diagnosesfrom getData." +
           error
       );
     }
@@ -28,34 +26,31 @@ export default class AddressPatient extends Component {
 
   componentDidMount = async () => {
     try {
-      const chartData = await this.getPatientAddressData();
+      const chartData = await this.getDiagnosesCountData();
       this.setState({ chartData });
     } catch (error) {
-      // alert(
-      //   "An unexpected error occured from getting patient address from component."
-      // );
+      //alert("An unexpected error occured from getting diagnosesfrom component");
       console.log(
-        "An unexpected error occured from getting patient address from componentDidMount." +
+        "An unexpected error occured from getting diagnosesfrom componentDidMount." +
           error
       );
     }
   };
-
   render() {
     return (
       <div>
-        <Bar
+        <HorizontalBar
           data={this.state.chartData}
           height={570}
           options={{
             maintainAspectRatio: false,
             title: {
               display: true,
-              text: "Number of Patients per Address",
+              text: "Most Diagnosed Diseases",
               fontSize: 25,
             },
             scales: {
-              yAxes: [
+              xAxes: [
                 {
                   ticks: {
                     beginAtZero: true,
@@ -66,8 +61,8 @@ export default class AddressPatient extends Component {
             },
             layout: {
               padding: {
-                left: 500,
-                right: 500,
+                left: 300,
+                right: 300,
                 top: 0,
                 bottom: 0,
               },

@@ -1,24 +1,24 @@
 import React, { Component } from "react";
 
 //Import Api functions
-import { getDoctorNum } from "../../API/ApiCalls/DoctorApiCalls";
+import { getCompletedAppointment } from "../../API/ApiCalls/AppointmentApiCalls";
 
 //Import Chart
 import { Bar } from "react-chartjs-2";
 
-export default class NumDoctors extends Component {
+export default class AppointmentCompletion extends Component {
   state = {
     chartData: {},
   };
 
-  getDoctorNumData = async () => {
+  getCompletedAppointmentData = async () => {
     try {
-      const data = await getDoctorNum();
+      const data = await getCompletedAppointment();
       return data;
     } catch (error) {
-      //alert("An unexpected error occured from getting doctor num from component");
+      //alert("An unexpected error occured from getting doctor address from component");
       console.log(
-        "An unexpected error occured from getting doctor num from getData." +
+        "An unexpected error occured from getting completed appointment from getData." +
           error
       );
     }
@@ -26,26 +26,12 @@ export default class NumDoctors extends Component {
 
   componentDidMount = async () => {
     try {
-      const chartData = await this.getDoctorNumData();
+      const chartData = await this.getCompletedAppointmentData();
       this.setState({ chartData });
     } catch (error) {
-      //alert("An unexpected error occured from getting doctor num from component");
+      //alert("An unexpected error occured from getting completed appointment from component");
       console.log(
-        "An unexpected error occured from getting doctor num from componentDidMount." +
-          error
-      );
-    }
-  };
-
-  componentDidUpdate = async () => {
-    console.log("Here");
-    try {
-      const chartData = await this.getDoctorNumData();
-      this.setState({ chartData });
-    } catch (error) {
-      //alert("An unexpected error occured from getting doctor num from component");
-      console.log(
-        "An unexpected error occured from getting doctor num from componentDidUpdate." +
+        "An unexpected error occured from getting completed appointment from componentDidMount." +
           error
       );
     }
@@ -61,7 +47,7 @@ export default class NumDoctors extends Component {
             maintainAspectRatio: false,
             title: {
               display: true,
-              text: "Number of Doctors in Rating Table",
+              text: "Number of Completed Appointments",
               fontSize: 25,
             },
             scales: {
@@ -76,8 +62,8 @@ export default class NumDoctors extends Component {
             },
             layout: {
               padding: {
-                right: 890,
                 left: 890,
+                right: 890,
                 top: 0,
                 bottom: 0,
               },
