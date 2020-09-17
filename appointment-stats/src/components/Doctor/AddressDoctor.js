@@ -37,19 +37,6 @@ export default class AddressDoctor extends Component {
     }
   };
 
-  componentDidUpdate = async () => {
-    try {
-      const chartData = await this.getDoctorAddressData();
-      this.setState({ chartData });
-    } catch (error) {
-      //alert("An unexpected error occured from getting doctor address from component");
-      console.log(
-        "An unexpected error occured from getting doctor address from componentDidMount." +
-          error
-      );
-    }
-  };
-
   render() {
     return (
       <div>

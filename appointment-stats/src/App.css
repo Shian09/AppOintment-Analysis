@@ -38,28 +38,52 @@
 }
 
 .buttonDoc {
-  background-color: rgb(68, 188, 224);
+  background-color: #34bdbd;
   width: fit-content;
-  height: 30px;
   align-items: center;
+  width: max-content;
   justify-content: center;
+  color: #fff;
+  height: 50px;
+}
+
+.buttonDoc:focus {
+  background-color: #b231d3;
+  width: fit-content;
+  align-items: center;
+  width: max-content;
+  justify-content: center;
+  color: #fff;
+  height: 50px;
 }
 
 .buttonPat {
-  background-color: rgb(231, 96, 197);
+  background-color: #34bdbd;
   width: fit-content;
-  height: 30px;
   align-items: center;
   justify-content: center;
+  color: #fff;
+  height: 50px;
+}
+
+.buttonPat:focus {
+  background-color: #b231d3;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  height: 50px;
 }
 
 .divDoc {
   padding-bottom: 10px;
+  /* margin-left: 33%; */
 }
 
 .divPat {
   float: right;
-  margin-top: -40px;
+  margin-top: -60px;
+  /* margin-right: 33%; */
 }
 
 .NavigationBar {
